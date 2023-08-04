@@ -1,5 +1,5 @@
 # smlparser
-Parses binary files of serial smart meter output data for SML telegrams
+Parses binary files of serial smart meter output data for SML telegrams.
 
 Get a serial optical reader, connect it to a serial terminal programm (9600, 8N1) and look at the output.
 If there are periodically arriving data blocks starting about like ...
@@ -82,13 +82,13 @@ sml_decode_binfile: ..\test\testdata1.bin (size: 5544) ...
 1.4.2.5.10.                      77
 ```
 
+This program is only intended to be a a tool for checking what the smart meter spits out.
+If you want to do something useful with it, then append in your own function for processing the received values here:
+```
+_SML_PRINTF(" # value: %s=%g", obis_name, val);
+```
 
-
-
-
-
-
-
+References
 
 
 Hterm Serial Terminal Programm for Windows
