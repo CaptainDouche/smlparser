@@ -1,6 +1,8 @@
 # smlparser
 Parses binary files, which contain the recorded output of a smart meter's optical serial interface, for useful SML telegrams ("smart meter language").
 
+## getting started
+
 Get a serial optical reader, connect it to a serial terminal program (9600, 8N1) and look at the output.
 If there are periodically arriving data blocks starting about like ...
 ```
@@ -10,6 +12,8 @@ If there are periodically arriving data blocks starting about like ...
 Record this output to a binary file. You dont have to align the files begin and end to the datagrams.
 
 Then feed this file to the smlparser.exe (source will compile using gcc in Linux or MinGW under Windows and is also used in my ESP-implementation).
+
+## checking the received data
 
 If the output looks similar to the following listing, then you will get the values you are probably most interested in.
 Typically these might be
@@ -82,13 +86,22 @@ sml_decode_binfile: ..\test\testdata1.bin (size: 5544) ...
 1.4.2.5.10.                      77
 ```
 
+## modifying this program for your needs
+
 This program is only intended to be a a tool for checking what the smart meter spits out.
 If you want to do something useful with it, then append in your own function for processing the received values here:
 ```
 _SML_PRINTF(" # value: %s=%g", obis_name, val);
 ```
+Also note, although this programs expects files, it works internally stream based: This means it can be used for implementations, that read serial ports byte by byte.
+My ESP-implementation calls  
+```
+bool sml_decode_stream(char c);
+```
+The decode_mem and decode_file functions are just vehicles for test and developement.
 
-References
+
+## References
 
 
 Hterm Serial Terminal Programm for Windows
