@@ -3,8 +3,8 @@ Parses binary files, which contain the recorded output of a smart meter's optica
 
 ## getting started
 
-Get a serial optical reader, connect it to a serial terminal program (9600, 8N1) and look at the output.
-If there are periodically arriving data blocks starting about like ...
+Get a serial optical reader, connect it to your smart meter, run a serial terminal program (9600, 8N1) and look at the output.
+If there are periodically arriving data blocks starting about like (in hex) ...
 ```
 1b 1b 1b 1b 01 01 01 01 76 05 03 ...
 ```
